@@ -1,52 +1,30 @@
-// var unsplashThis = document.querySelectorAll(".unsplash-this")
-
-// console.log(unsplashThis);
-
-// for(var x = 0; x < unsplashThis.length; x++){
-// 	unsplashThis[x].style.backgroundImage = "url('https://source.unsplash.com/random')"
-// }
-
-
-
-
-//funciona
-
 var unsplashThis = document.querySelectorAll(".unsplash-this");
-var unsplashLink = "https://source.unsplash.com/random"
 
-for(var x = 0; x < unsplashThis.length; x++){
-	unsplashThis[x].style.backgroundImage = "url('"+unsplashLink+"')"
+var unsplashThisNew = document.querySelectorAll(".unsplash-this-new");
+
+var unsplashTnisNewLink = "https://source.unsplash.com/random";
+
+console.log(unsplashTnisNewLink)
+
+for(var x = 0; x < unsplashThisNew.length; x++){
+ unsplashThisNew[x].setAttribute("style", "background-position: center; background-repeat: no-repeat; background-image: url('https://source.unsplash.com/random')");
 }
 
 
-// for(x of unsplashThis){
-// 	x.style.backgroundImage = "url('https://source.unsplash.com/random')";
-// }
 
+function FunsplashThis(){
+    for(var x = 0; x < unsplashThis.length; x++){
+        var unsplashCategory = unsplashThis[x].getAttribute("data-category");
+        var unsplashLink= "https://source.unsplash.com/random";
+        if (unsplashCategory){
+            unsplashLink = "https://source.unsplash.com/category/"+unsplashCategory;
+        }
+        unsplashThis[x].setAttribute("style", "background-position: center; background-repeat: no-repeat; background-image: url('"+unsplashLink+"')");
+    }
+}
 
+function ready(){
+    FunsplashThis();
+}
 
-
-//Eduardo
-
-// function splashThis(){
-
-//     var array = {
-//       nature: "/category/nature",
-//       random: "/random"
-//     }
-
-//     let splashthis = document.querySelectorAll(".splash-this");
-//     let splashnature = document.querySelectorAll(".splash-this-nature");
-
-//     var splash = "url('https://source.unsplash.com:replace:')";
-
-//     for(let container of splashthis){
-//       container.style.background = splash.replace(":replace:",array.random);
-//     }
-
-//     for(let nature of splashnature){
-//       nature.style.background = splash.replace(":replace:",array.nature);
-//     }
-//   }
-
-//   window.onload = splashThis;
+window.onload = ready
