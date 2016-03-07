@@ -1,6 +1,5 @@
-var unsplashThis = document.querySelectorAll(".unsplash-this");
-
 function FunsplashThis(){
+	var unsplashThis = document.querySelectorAll(".unsplash-this");
     for(var x = 0; x < unsplashThis.length; x++) {
         var unsplashCategory = unsplashThis[x].getAttribute("data-category");
         var unsplashLink= "https://source.unsplash.com/random/" + x;
